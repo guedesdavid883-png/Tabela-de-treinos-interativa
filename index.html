@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Treino da Semana</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            color: #1995e7;
+        }
+
+        table {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        tr:nth-child(odd) td {
+            background-color: #dbeafe;
+        }
+
+        tr:nth-child(even) td {
+            background-color: white;
+        }
+
+        tr:hover td {
+            background-color: #bfdbfe;
+            cursor: pointer;
+        }
+
+        .dica {
+            width: 90%;
+            max-width: 760px;
+            margin: 25px auto;
+            padding: 18px 22px;
+            background-color: #e8f4ff;
+            border-left: 6px solid #1995e7;
+            border-radius: 15px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+
+        .dica h3 {
+            margin-top: 0;
+            color: #1995e7;
+        }
+
+        .dica p {
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.65);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-conteudo {
+            background-color: white;
+            width: 90%;
+            max-width: 500px;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-conteudo h2 {
+            color: #1995e7;
+        }
+
+        .imagem-exercicio {
+            width: 100%;
+            height: 280px;
+            background-color: #f2f2f2;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .imagem-exercicio img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .fechar {
+            position: absolute;
+            top: 5px;
+            right: 18px;
+            font-size: 30px;
+            color: #555;
+            cursor: pointer;
+        }
+
+        .fechar:hover {
+            color: red;
+        }
+
+        .series {
+            font-weight: bold;
+            color: #1995e7;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Plano de Treino da Semana</h1>
+
+    <table>
+        <tr>
+            <th>Dia</th>
+            <th>Treino</th>
+        </tr>
+        <tr>
+            <td>Segunda</td>
+            <td>Peito e tríceps</td>
+        </tr>
+        <tr>
+            <td>Terça</td>
+            <td>Perna com foco em quadríceps</td>
+        </tr>
+        <tr>
+            <td>Quarta</td>
+            <td>Descanso ativo</td>
+        </tr>
+        <tr>
+            <td>Quinta</td>
+            <td>Costas e bíceps</td>
+        </tr>
+        <tr>
+            <td>Sexta</td>
+            <td>Perna com foco em glúteos</td>
+        </tr>
+        <tr>
+            <td>Sábado</td>
+            <td>Ombros completo</td>
+        </tr>
+        <tr>
+            <td>Domingo</td>
+            <td>Descanso</td>
+        </tr>
+    </table>
+
+    <h1>Segunda</h1>
+    <h2>Peito e tríceps</h2>
+
+    <div class="dica">
+        <h3>Como funciona o treino</h3>
+        <p>O objetivo é trabalhar principalmente o peito e o tríceps. Faça os movimentos devagar e evite usar impulso.</p>
+        <p>No tríceps, mantenha os cotovelos próximos ao corpo e escolha um peso que permita fazer o exercício corretamente.</p>
+    </div>
+
+    <table>
+        <tr onclick="mostrarExercicio('Supino reto na máquina','4x10-12','imagens/supino-reto-maquina.jpg','Mantenha as costas apoiadas e empurre o peso de forma controlada.')">
+            <td>Supino reto na máquina</td>
+            <td>4x10-12</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Supino inclinado na máquina','4x10-12','imagens/supino-inclinado-maquina.jpg','Mantenha as costas apoiadas e faça o movimento devagar.')">
+            <td>Supino inclinado na máquina</td>
+            <td>4x10-12</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Crucifixo na máquina','4x10-12','imagens/crucifixo-maquina.jpg','Mantenha os braços levemente dobrados e controle a abertura e o fechamento.')">
+            <td>Crucifixo na máquina</td>
+            <td>4x10-12</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Abdominal','3x15-20','imagens/abdominal.jpg','Faça o movimento devagar e não puxe o pescoço com as mãos.')">
+            <td>Abdominal</td>
+            <td>3x15-20</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Tríceps na polia alta','3x10-12','imagens/triceps-polia-alta.jpg','Deixe os cotovelos próximos ao corpo e faça a extensão do braço.')">
+            <td>Tríceps na polia alta</td>
+            <td>3x10-12</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Tríceps na polia baixa','3x10-12','imagens/triceps-polia-baixa.jpg','Mantenha os cotovelos parados e faça o movimento de forma controlada.')">
+            <td>Tríceps na polia baixa</td>
+            <td>3x10-12</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Cardio','20-30 minutos','imagens/cardio.jpg','Escolha um cardio que você consiga fazer em uma intensidade confortável.')">
+            <td>Cardio da sua escolha</td>
+            <td>20-30 minutos</td>
+        </tr>
+    </table>
+
+    <h1>Terça</h1>
+    <h2>Perna com foco em quadríceps</h2>
+
+    <div class="dica">
+        <h3>Como funciona o treino</h3>
+        <p>O foco desse dia é o quadríceps, que fica na parte da frente da coxa.</p>
+        <p>Faça a descida devagar e mantenha os joelhos acompanhando a direção dos pés. Não precisa usar uma carga muito alta.</p>
+    </div>
+
+    <table>
+        <tr onclick="mostrarExercicio('Agachamento no Smith','4x10','imagens/agachamento-smith.jpg','Mantenha os pés firmes e controle a descida. Os joelhos devem acompanhar a direção dos pés.')">
+            <td>Agachamento no Smith</td>
+            <td>4x10</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Leg press','4x10','imagens/leg-press.jpg','Mantenha o quadril apoiado no banco e controle a descida do peso.')">
+            <td>Leg press</td>
+            <td>4x10</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Extensão de pernas','3x12','imagens/extensao-pernas.jpg','Estenda as pernas de forma controlada e evite dar trancos no aparelho.')">
+            <td>Extensão de pernas</td>
+            <td>3x12</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Cadeira flexora','3x12','imagens/cadeira-flexora.jpg','Mantenha o quadril apoiado e controle o movimento durante a descida.')">
+            <td>Cadeira flexora</td>
+            <td>3x12</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Cadeira adutora','3x12','imagens/cadeira-adutora.jpg','Mantenha as costas apoiadas e aproxime as pernas de forma controlada.')">
+            <td>Cadeira adutora</td>
+            <td>3x12</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Panturrilha','3x12','imagens/panturrilha.jpg','Suba o calcanhar e desça devagar, tentando fazer uma boa amplitude.')">
+            <td>Panturrilha</td>
+            <td>3x12</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Cardio','20-30 minutos','imagens/cardio.jpg','Escolha um cardio que você consiga fazer em uma intensidade confortável.')">
+            <td>Cardio da sua escolha</td>
+            <td>20-30 minutos</td>
+        </tr>
+    </table>
+
+    <h1>Quarta</h1>
+    <h2>Descanso ativo</h2>
+
+    <div class="dica">
+        <h3>Como funciona</h3>
+        <p>O descanso ativo serve para movimentar o corpo sem fazer um treino pesado.</p>
+        <p>Você pode fazer uma caminhada leve, alongamentos ou outra atividade de baixa intensidade.</p>
+    </div>
+
+    <h1>Quinta</h1>
+    <h2>Costas e bíceps</h2>
+
+    <div class="dica">
+        <h3>Como funciona o treino</h3>
+        <p>O objetivo é trabalhar principalmente as costas. O bíceps também participa dos exercícios de puxada.</p>
+        <p>Nas puxadas e remadas, tente levar os cotovelos para trás e não use muito impulso.</p>
+    </div>
+
+    <table>
+        <tr onclick="mostrarExercicio('Puxada alta na polia','4x10','imagens/puxada-alta.jpg','Mantenha o corpo estável e puxe a barra em direção ao peito.')">
+            <td>Puxada alta na polia</td>
+            <td>4x10</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Remada baixa na polia','4x10','imagens/remada-baixa.jpg','Puxe o cabo em direção ao abdômen mantendo a coluna estável.')">
+            <td>Remada baixa na polia</td>
+            <td>4x10</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Remada curvada com barra','4x10','imagens/remada-curvada.jpg','Mantenha a coluna neutra e puxe a barra em direção ao abdômen.')">
+            <td>Remada curvada com barra</td>
+            <td>4x10</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Abdominal','3x15-20','imagens/abdominal.jpg','Faça o movimento devagar e não puxe o pescoço.')">
+            <td>Abdominal</td>
+            <td>3x15-20</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Rosca direta com barra','3x12','imagens/rosca-direta.jpg','Mantenha os cotovelos parados e evite balançar o corpo.')">
+            <td>Rosca direta com barra</td>
+            <td>3x12</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Rosca alternada com halteres','3x12','imagens/rosca-alternada.jpg','Mantenha o cotovelo parado e controle a subida e a descida.')">
+            <td>Rosca alternada com halteres</td>
+            <td>3x12</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Cardio','20-30 minutos','imagens/cardio.jpg','Escolha um cardio que você consiga fazer em uma intensidade confortável.')">
+            <td>Cardio da sua escolha</td>
+            <td>20-30 minutos</td>
+        </tr>
+    </table>
+
+    <h1>Sexta</h1>
+    <h2>Perna com foco em glúteos</h2>
+
+    <div class="dica">
+        <h3>Como funciona o treino</h3>
+        <p>O foco desse treino é trabalhar principalmente os glúteos e a parte de trás das pernas.</p>
+        <p>Faça os movimentos devagar. Na elevação pélvica, tente contrair bem os glúteos no final do movimento.</p>
+    </div>
+
+    <table>
+        <tr onclick="mostrarExercicio('Agachamento no Smith','3x10','imagens/agachamento-smith.jpg','Mantenha os pés firmes e controle a descida.')">
+            <td>Agachamento no Smith</td>
+            <td>3x10</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Elevação pélvica','4x10','imagens/elevacao-pelvica.jpg','Empurre o chão com os pés e eleve o quadril, contraindo os glúteos no final.')">
+            <td>Elevação pélvica</td>
+            <td>4x10</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Stiff','4x10','imagens/stiff.jpg','Leve o quadril para trás mantendo a coluna neutra e o peso próximo do corpo.')">
+            <td>Stiff</td>
+            <td>4x10</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Afundo búlgaro','3x12','imagens/afundo-bulgaro.jpg','Desça devagar e mantenha o joelho acompanhando a direção do pé.')">
+            <td>Afundo búlgaro</td>
+            <td>3x12</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Cadeira adutora','3x12','imagens/cadeira-adutora.jpg','Mantenha as costas apoiadas e aproxime as pernas devagar.')">
+            <td>Cadeira adutora</td>
+            <td>3x12</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Panturrilha','3x12','imagens/panturrilha.jpg','Suba e desça o calcanhar de forma controlada.')">
+            <td>Panturrilha</td>
+            <td>3x12</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Cardio','20-30 minutos','imagens/cardio.jpg','Escolha um cardio que você consiga fazer em uma intensidade confortável.')">
+            <td>Cardio da sua escolha</td>
+            <td>20-30 minutos</td>
+        </tr>
+    </table>
+
+    <h1>Sábado</h1>
+    <h2>Ombros completo</h2>
+
+    <div class="dica">
+        <h3>Como funciona o treino</h3>
+        <p>Esse treino trabalha as diferentes partes dos ombros: anterior, lateral e posterior.</p>
+        <p>Nas elevações, evite usar impulso. Escolha um peso que permita fazer os movimentos corretamente.</p>
+    </div>
+
+    <table>
+        <tr onclick="mostrarExercicio('Desenvolvimento com halteres','4x10','imagens/desenvolvimento-halteres.jpg','Mantenha o corpo estável e empurre os halteres para cima de forma controlada.')">
+            <td>Desenvolvimento com halteres</td>
+            <td>4x10</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Elevação lateral com halteres','3x12','imagens/elevacao-lateral.jpg','Mantenha os braços levemente dobrados e evite usar impulso.')">
+            <td>Elevação lateral com halteres</td>
+            <td>3x12</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Elevação frontal com halteres','3x12','imagens/elevacao-frontal.jpg','Eleve os halteres de forma controlada sem balançar o corpo.')">
+            <td>Elevação frontal com halteres</td>
+            <td>3x12</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Crucifixo inverso na máquina','3x12','imagens/crucifixo-inverso.jpg','Abra os braços de forma controlada usando a parte de trás dos ombros.')">
+            <td>Crucifixo inverso na máquina</td>
+            <td>3x12</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Encolhimento de ombros com halteres','3x12','imagens/encolhimento.jpg','Eleve os ombros para cima e controle a descida.')">
+            <td>Encolhimento de ombros com halteres</td>
+            <td>3x12</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Abdominal','3x15-20','imagens/abdominal.jpg','Faça o movimento devagar e não puxe o pescoço.')">
+            <td>Abdominal</td>
+            <td>3x15-20</td>
+        </tr>
+        <tr onclick="mostrarExercicio('Cardio','20-30 minutos','imagens/cardio.jpg','Escolha um cardio que você consiga fazer em uma intensidade confortável.')">
+            <td>Cardio da sua escolha</td>
+            <td>20-30 minutos</td>
+        </tr>
+    </table>
+
+    <h1>Domingo</h1>
+    <h2>Descanso</h2>
+
+    <div class="dica">
+        <h3>Como funciona</h3>
+        <p>Esse dia é para descansar e recuperar o corpo depois dos treinos da semana.</p>
+        <p>Procure dormir bem e se preparar para começar uma nova semana.</p>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar" onclick="fecharModal()">&times;</span>
+
+            <h2 id="nomeExercicio">Nome do exercício</h2>
+
+            <div class="imagem-exercicio">
+                <img id="imagemExercicio" src="" alt="Exercício">
+            </div>
+
+            <p class="series" id="seriesExercicio">4x10</p>
+            <p id="descricaoExercicio">Dica de execução.</p>
+        </div>
+    </div>
+
+    <script>
+        function mostrarExercicio(nome, series, imagem, descricao) {
+            document.getElementById("nomeExercicio").innerText = nome;
+            document.getElementById("seriesExercicio").innerText = series;
+            document.getElementById("descricaoExercicio").innerText = descricao;
+            document.getElementById("imagemExercicio").src = imagem;
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function fecharModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("modal")) {
+                fecharModal();
+            }
+        }
+    </script>
+
+</body>
+</html>
